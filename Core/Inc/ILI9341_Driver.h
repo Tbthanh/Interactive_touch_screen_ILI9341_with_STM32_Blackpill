@@ -3,7 +3,7 @@
  *
  * @source			: https://github.com/dtnghia2206/TFTLCD
  * @modified date	: 02 Nov 2024
- * @author			: Tran Ba Thanh
+ * @editor			: Tran Ba Thanh
  *
  */
 

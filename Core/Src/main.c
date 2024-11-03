@@ -98,19 +98,18 @@ int main(void)
   // Initialization the TFT screen
   ILI9341_Init();
   ILI9341_Set_Rotation(0);
-  HAL_Delay(500);
-  ILI9341_Fill_Screen(RED);
-  HAL_Delay(500);
-  ILI9341_Fill_Screen(GREEN);
-  HAL_Delay(500);
-  ILI9341_Fill_Screen(BLUE);
-  HAL_Delay(500);
-  ILI9341_Fill_Screen(BLACK);
-  HAL_Delay(500);
+//  HAL_Delay(500);
+//  ILI9341_Fill_Screen(RED);
+//  HAL_Delay(500);
+//  ILI9341_Fill_Screen(GREEN);
+//  HAL_Delay(500);
+//  ILI9341_Fill_Screen(BLUE);
+//  HAL_Delay(500);
+	ILI9341_Fill_Screen(BLACK);
+	HAL_Delay(500);
 
-  uint16_t xtemp, ytemp;
 
-  TP_Init();
+//  TP_Init();
 
   /* USER CODE END 2 */
 
@@ -217,6 +216,8 @@ static void MX_SPI1_Init(void)
 static void MX_GPIO_Init(void)
 {
 /* USER CODE BEGIN MX_GPIO_Init_1 */
+	/* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
@@ -224,6 +225,23 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOA_CLK_ENABLE();
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+  GPIO_InitTypeDef GPIO_InitStruct;
+
+// TFT Display GPIO related Initialization
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(RESET_GPIO_Port, RESET_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(DC_GPIO_Port, DC_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(CS_GPIO_Port, CS_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : RESET_Pin, DC_Pin and CS_Pin*/
+  GPIO_InitStruct.Pin = RESET_Pin | DC_Pin | CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_MEDIUM;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+// TFT Touch GPIO related Initialization
+
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
