@@ -58,34 +58,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := TFT_2-8_inch_touch_dtnghia2206
+BUILD_ARTIFACT_NAME := TFT_2-8_inch_touch_BlackPill
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-TFT_2-8_inch_touch_dtnghia2206.elf \
+TFT_2-8_inch_touch_BlackPill.elf \
 
 MAP_FILES += \
-TFT_2-8_inch_touch_dtnghia2206.map \
+TFT_2-8_inch_touch_BlackPill.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-TFT_2-8_inch_touch_dtnghia2206.list \
+TFT_2-8_inch_touch_BlackPill.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: TFT_2-8_inch_touch_dtnghia2206.elf secondary-outputs
+main-build: TFT_2-8_inch_touch_BlackPill.elf secondary-outputs
 
 # Tool invocations
-TFT_2-8_inch_touch_dtnghia2206.elf TFT_2-8_inch_touch_dtnghia2206.map: $(OBJS) $(USER_OBJS) D:\TAI_LIEU\ET-E9\Program\20241\ET4245-AI_and_Applicaiton\HandWritingRecognition_on_STM32\Impliment_on_embed_kit\Testing_SPI_screen\STM32F401CDUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "TFT_2-8_inch_touch_dtnghia2206.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\TAI_LIEU\ET-E9\Program\20241\ET4245-AI_and_Applicaiton\HandWritingRecognition_on_STM32\Impliment_on_embed_kit\Testing_SPI_screen\STM32F401CDUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TFT_2-8_inch_touch_dtnghia2206.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+TFT_2-8_inch_touch_BlackPill.elf TFT_2-8_inch_touch_BlackPill.map: $(OBJS) $(USER_OBJS) D:\TAI_LIEU\ET-E9\Program\20241\ET4245-AI_and_Applicaiton\HandWritingRecognition_on_STM32\Impliment_on_embed_kit\Testing_SPI_screen\STM32F401CDUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "TFT_2-8_inch_touch_BlackPill.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\TAI_LIEU\ET-E9\Program\20241\ET4245-AI_and_Applicaiton\HandWritingRecognition_on_STM32\Impliment_on_embed_kit\Testing_SPI_screen\STM32F401CDUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TFT_2-8_inch_touch_BlackPill.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -94,14 +94,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TFT_2-8_inch_touch_dtnghia2206.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TFT_2-8_inch_touch_dtnghia2206.list"
+TFT_2-8_inch_touch_BlackPill.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TFT_2-8_inch_touch_BlackPill.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) TFT_2-8_inch_touch_dtnghia2206.elf TFT_2-8_inch_touch_dtnghia2206.list TFT_2-8_inch_touch_dtnghia2206.map default.size.stdout
+	-$(RM) TFT_2-8_inch_touch_BlackPill.elf TFT_2-8_inch_touch_BlackPill.list TFT_2-8_inch_touch_BlackPill.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
